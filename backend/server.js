@@ -30,6 +30,25 @@ app.use('/api/auth', authRoutes);
 app.use('/api/complaints', complaintRoutes);
 app.use('/api/users', userRoutes);
 
+// Make uploads folder static
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Serve frontend in production
+if (process.env.NODE_ENV === 'production') {
+  // Set static folder up one level into /dist
+  app.use(express.static(path.join(__dirname, '../dist')));
+
+  app.get('*', (req, res) =>
+    res.sendFile(
+      path.resolve(__dirname, '../', 'dist', 'index.html')
+    )
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running....');
+  });
+}
+
 // Error Handling Middleware
 app.use((err, req, res, next) => {
     let error = { ...err };
