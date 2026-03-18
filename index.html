@@ -1,405 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CivicLens | Community Reporting Portal</title>
-    <link rel="stylesheet" href="new.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="reportstyle.css">
+    <!-- FontAwesome & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+  </head>
+  <body>
     <!-- Particle Background -->
     <div id="particles-js"></div>
-
-
-    <!-- Nanbar -->
-
-    <nav class="navbar">
-        <a href="index.html" class="logo" style="scroll-behavior: smooth;">
-          <i class="fas fa-hands-helping logo-icon" style="transition: transform 0.3s;"></i>
-          <span style="cursor: pointer; transition: color 0.3s;">CivicLens</span>
-        </a>
-        <style>
-          .logo:hover .logo-icon {
-            transform: scale(1.15) rotate(-10deg);
-          }
-          .logo:hover span {
-            color: #38b6ff;
-          }
-        </style>
-        
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a onclick="window.scrollTo({ top: 0, behavior: 'smooth' });" style="cursor: pointer;" class="active">Home</a></li>
-                <li><a href="#issues">Issues</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#map">Map</a></li>
-                <li><a href="report.html">Report</a></li>
-            </ul>
-            
-            <div class="account-dropdown">
-                <button class="account-btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Account</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#"><i class="fas fa-user"></i> Your Profile</a>
-                    <a href="#"><i class="fas fa-edit"></i> Edit Profile</a>
-                    <a href="#" onclick="window.location.href='login.html'; return false;"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero body test -->
-
-<div id="home" class="test-body" style="
-  height: fit-content; 
-  width: 100%; 
-  color: white; 
-  margin-top: 200px;
-  margin-bottom: 250px; 
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('https://images.unsplash.com/photo-1520703653790-dc49e9e7c2b5?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-">
-  <h1 style="
-    font-size: 3rem; 
-    font-weight: bold; 
-    margin-bottom: 20px; 
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  ">
-    Together We Can Build a Better Community
-  </h1>
-  <p style="
-    font-size: 1.2rem; 
-    max-width: 600px; 
-    margin-bottom: 30px; 
-    line-height: 1.6; 
-    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
-  ">
-    Report local issues, track their resolution, and collaborate with your neighbors to make your neighborhood a better place to live.
-  </p>
-  <div class="hero-buttons" style="display: flex; gap: 15px;">
-    <button class="btn btn-primary" style="
-      padding: 12px 25px; 
-      border-radius: 25px; 
-      font-size: 1rem; 
-      font-weight: 600; 
-      cursor: pointer; 
-      background-color: #007bff; 
-      border: none; 
-      color: white; 
-      transition: all 0.3s ease;
-    "
-    onmouseover="this.style.backgroundColor='#0056b3'"
-    onmouseout="this.style.backgroundColor='#007bff'"
-    onclick="window.location.href='report.html'">
-      <i class="fas fa-plus"></i> Report an Issue
-    </button>
-    <button class="btn btn-outline" style="
-      padding: 12px 25px; 
-      border-radius: 25px; 
-      font-size: 1rem; 
-      font-weight: 600; 
-      cursor: pointer; 
-      background-color: transparent; 
-      border: 2px solid white; 
-      color: white; 
-      transition: all 0.3s ease;
-    "
-    onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.2)'"
-    onmouseout="this.style.backgroundColor='transparent'"
-    onclick="window.scrollTo({ top: document.getElementById('map').offsetTop, behavior: 'smooth' })">
-      <i class="fas fa-map-marked-alt"></i> View Map
-    </button>
-  </div>
-</div>
-
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="section-header">
-            <h2>How It Works</h2>
-            <p>Our platform makes it easy to report and track community issues while connecting with local authorities and neighbors.</p>
-        </div>
-        
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-edit"></i>
-                </div>
-                <h3>Easy Reporting</h3>
-                <p>Submit issues in minutes with our simple form. Add photos, location details, and category to help us address it faster.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <h3>Interactive Map</h3>
-                <p>See all reported issues in your area on our live map. Filter by category, status, or date to stay informed.</p>
-            </div>
-            
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-bell"></i>
-                </div>
-                <h3>Real-time Updates</h3>
-                <p>Get notifications when your reported issue changes status or when new comments are added by officials or neighbors.</p>
-            </div>
-        </div>
-    </section>
-
-    <div style="height: 100px; width: 100%;"></div>
-
-
-    <!-- Issues Section -->
-    <section id="issues" class="issues-section">
-        <div class="section-header">
-            <h2>Recent Community Issues</h2>
-            <p>See what your neighbors are reporting and support important issues.</p>
-        </div>
-        
-        <div class="issues-grid">
-            
-            <div class="issue-card">
-                <div class="issue-image" style="background-image: url('https://www.shutterstock.com/image-photo/street-lamp-one-light-broken-600nw-1068936512.jpg');"></div>
-
-                <div class="issue-content">
-                    <div class="issue-header">
-                        <span class="issue-category">Public Safety</span>
-                        <span class="issue-date">1 week ago</span>
-                    </div>
-                    <h3 class="issue-title">Broken Street Light</h3>
-                    <div class="issue-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Elm Street between 2nd and 3rd Ave</span>
-                    </div>
-                    <p class="issue-description">Street light #42 has been out for over a week, creating a very dark and potentially dangerous area at night.</p>
-                    <div class="issue-footer">
-                        <div class="issue-status">
-                            <span class="status-badge status-pending">Pending</span>
-                        </div>
-                        <div class="issue-votes">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>32</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="issue-card">
-                <div class="issue-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLcxjzNHUdJvmQP75MqyWvDBXiVsEJqwNV6g&s');"></div>
-                <div class="issue-content">
-                    <div class="issue-header">
-                        <span class="issue-category">Public Safety</span>
-                        <span class="issue-date">3 days ago</span>
-                    </div>
-                    <h3 class="issue-title">Broken Sidewalk</h3>
-                    <div class="issue-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Oak Street near City Park</span>
-                    </div>
-                    <p class="issue-description">Large section of sidewalk is cracked and uneven, creating a tripping hazard for pedestrians.</p>
-                    <div class="issue-footer">
-                        <div class="issue-status">
-                            <span class="status-badge status-pending">Pending</span>
-                        </div>
-                        <div class="issue-votes">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>15</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="issue-card">
-                <div class="issue-image" style="background-image: url('https://media.istockphoto.com/id/1470323740/photo/a-childrens-swing-is-broken-in-half-by-vandals.jpg?s=612x612&w=0&k=20&c=IMnLM0isqkhWldDQXbKQBoIIJ0u7d8ogQsEsApN69yI=');"></div>
-                <div class="issue-content">
-                    <div class="issue-header">
-                        <span class="issue-category">Parks & Recreation</span>
-                        <span class="issue-date">1 week ago</span>
-                    </div>
-                    <h3 class="issue-title">Damaged Playground Equipment</h3>
-                    <div class="issue-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Riverside Park Playground</span>
-                    </div>
-                    <p class="issue-description">Swing set is broken and needs repair. The chains are loose and the seats are cracked.</p>
-                    <div class="issue-footer">
-                        <div class="issue-status">
-                            <span class="status-badge status-in-progress">In Progress</span>
-                        </div>
-                        <div class="issue-votes">
-                            <i class="fas fa-thumbs-up"></i>
-                            <span>29</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div style="height: 100px; width: 100%;"></div>
-
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="section-header">
-            <h2>What Our Community Says</h2>
-            <p>Hear from residents who have used our platform to improve their neighborhoods.</p>
-        </div>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"I reported a dangerous pothole on my street, and it was fixed within three days! The updates from the city kept me informed throughout the process."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson Avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                    </div>
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>Maplewood Resident</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The community map helped me discover several issues in my area that I wasn't aware of. Now our neighborhood association uses this platform to prioritize improvements."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Sarah Johnson Avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                    </div>
-                    <div class="author-info">
-                        <h4>Michael Chen</h4>
-                        <p>Neighborhood Association President</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"As a city worker, this platform helps us respond to issues more efficiently. The photos and precise locations residents provide save us so much time."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Sarah Johnson Avatar" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
-                    </div>
-                    <div class="author-info">
-                        <h4>David Rodriguez</h4>
-                        <p>Public Works Department</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <section id="map" class="map-section">
-        <div class="section-header">
-            <h2>Community Issues Map</h2>
-            <p>Explore reported issues in your neighborhood and see what's being addressed.</p>
-        </div>
-        
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215209179873!2d-73.98784492453713!3d40.74844097138952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1690834253572!5m2!1sen!2sus" 
-                width="100%" 
-                height="100%" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-    </section>
-
-    <div style="height: 100px; width: 100%;"></div>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Make a Difference?</h2>
-            <p>Join thousands of community members who are working together to improve their neighborhoods.</p>
-            <button class="btn btn-primary" style="background-color: white; color: var(--primary);" onclick="window.location.href='login.html'"><i class="fas fa-user-plus"></i> Join Now</button>
-        </div>
-    </section>
-
-
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-column">
-                <h3>CivicLens</h3>
-                <p style="color: #cbd5e1; margin-bottom: 1.5rem;">Empowering communities through collaboration and transparency.</p>
-                <div class="social-links">
-                    <a href="http://www.linkedin.com/in/mohneesh-gupta" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a href="http://www.linkedin.com/in/mohneesh-gupta" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="http://www.linkedin.com/in/mohneesh-gupta" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="http://www.linkedin.com/in/mohneesh-gupta" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#report">Report an Issue</a></li>
-                    <li><a href="#map">Community Map</a></li>
-                    <li><a href="#issues">Recent Issues</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Resources</h3>
-                <ul class="footer-links">
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Community Guidelines</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <div class="footer-contact">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>bhopal, 462022</span>
-                </div>
-                <div class="footer-contact">
-                    <i class="fas fa-phone-alt"></i>
-                    <span>(XXX) XXX-XXXX</span>
-                </div>
-                <div class="footer-contact">
-                    <i class="fas fa-envelope"></i>
-                    <span>work.mohneesh@gmail.com</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2023 CivicLens. All rights reserved.</p>
-            <p>Designed with ❤️ by Team MYTH busters</p>
-        </div>
-    </footer>
-
-
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    
+    <div id="root"></div>
+    
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="new.js"></script>
-</body>
+    <script>
+      // Initialize particles.js
+      window.onload = function() {
+        if(window.particlesJS) {
+          particlesJS("particles-js", {
+            "particles": {
+              "number": {"value": 100, "density": {"enable": true, "value_area": 800}},
+              "color": {"value": "#ffffff"},
+              "shape": {"type": "circle"},
+              "opacity": {"value": 0.8},
+              "size": {"value": 4.5, "random": true},
+              "line_linked": {"enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.5, "width": 2},
+              "move": {"enable": true, "speed": 2, "out_mode": "out"}
+            },
+            "interactivity": {
+              "events": {
+                "onhover": {"enable": true, "mode": "grab"},
+                "onclick": {"enable": true, "mode": "push"},
+                "resize": true
+              },
+              "modes": {
+                "grab": {"distance": 250, "line_linked": {"opacity": 1}},
+                "push": {"particles_nb": 4}
+              }
+            },
+            "retina_detect": true
+          });
+        }
+      };
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
