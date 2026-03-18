@@ -4,6 +4,7 @@ import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -13,6 +14,10 @@ const Navbar = () => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen((prev) => !prev);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev);
   };
 
   const handleLogout = (e) => {
@@ -29,7 +34,11 @@ const Navbar = () => {
         <span>CivicLens</span>
       </Link>
       
-      <div className={styles.navRight}>
+      <button className={styles.hamburger} onClick={toggleMobileMenu}>
+        <i className={`fas ${isMobileMenuOpen ? 'fa-times' : 'fa-bars'}`}></i>
+      </button>
+      
+      <div className={`${styles.navRight} ${isMobileMenuOpen ? styles.mobileOpen : ''}`}>
         <ul className={styles.navLinks}>
           <li>
             <span onClick={handleScrollToTop} className={styles.active} style={{ cursor: 'pointer' }}>

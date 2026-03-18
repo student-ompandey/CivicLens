@@ -19,6 +19,15 @@
   transition: all 0.4s ease;
 }
 
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -135,12 +144,47 @@
     padding: 0.75rem 1.2rem;
     border-radius: 20px;
   }
+  .hamburger {
+    display: block;
+  }
+  .navRight {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    gap: 1.5rem;
+  }
+  .navRight.mobileOpen {
+    display: flex;
+    animation: dropdownFade 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
   .navLinks {
-    display: none; /* Hide navlinks on ultra-small screens */
+    display: flex; 
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 1.2rem;
   }
   .accountBtn {
     padding: 8px 14px;
     font-size: 0.85rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .dropdownContent {
+    position: relative;
+    top: 10px;
+    width: 100%;
+    box-shadow: none;
+    background: rgba(99, 102, 241, 0.05);
   }
   .logo {
     font-size: 1.25rem;
