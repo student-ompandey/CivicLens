@@ -259,6 +259,19 @@
   transform: translateX(200%);
 }
 
+.mobileToggleText {
+  display: none;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+}
+
+.mobileToggleText strong {
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .toggleContainer {
     display: none;
@@ -281,5 +294,8 @@
   }
   .container {
     min-height: 500px;
+  }
+  .mobileToggleText {
+    display: block;
   }
 }

@@ -70,6 +70,9 @@ const Login = () => {
             <input type="email" name="email" placeholder="Email" required value={formData.email} onChange={handleInputChange} />
             <input type="password" name="password" placeholder="Password" required value={formData.password} onChange={handleInputChange} />
             <button type="submit">Sign Up</button>
+            <p className={styles.mobileToggleText}>
+              Already have an account? <strong onClick={handleLoginClick}>Sign In</strong>
+            </p>
           </form>
         </div>
 
@@ -87,6 +90,9 @@ const Login = () => {
             <input type="password" name="password" placeholder="Password" required value={formData.password} onChange={handleInputChange} />
             <a href="#forgot" className={styles.forgotLink}>Forgot Your Password?</a>
             <button type="submit">Sign In</button>
+            <p className={styles.mobileToggleText}>
+              Don't have an account? <strong onClick={handleRegisterClick}>Sign Up</strong>
+            </p>
           </form>
         </div>
         
