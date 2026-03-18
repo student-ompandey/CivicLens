@@ -21,7 +21,8 @@ const Issues = () => {
     const fetchIssues = async () => {
       try {
         const response = await complaintService.getAll();
-        setIssues(response.data.data);
+        const issuesData = response.data.data || response.data || [];
+        setIssues(Array.isArray(issuesData) ? issuesData : []);
       } catch (err) {
         setError('Failed to load recent issues.');
       } finally {

@@ -46,7 +46,8 @@ const ProfilePage = () => {
   const fetchMyIssues = async () => {
     try {
       const resp = await complaintService.getMy();
-      setMyIssues(resp.data.data);
+      const myIssuesData = resp.data.data || resp.data || [];
+      setMyIssues(Array.isArray(myIssuesData) ? myIssuesData : []);
     } catch (err) {
       console.error('Failed to grab issues', err);
     } finally {
