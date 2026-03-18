@@ -35,14 +35,15 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
-  // Set static folder up one level into /dist
   app.use(express.static(path.join(__dirname, '../dist')));
 
-  app.get('*', (req, res) =>
+  // Use a wildcard middleware to serve index.html for any unhandled routes
+  // This avoids Express 5 wildcard compilation errors
+  app.use((req, res) => {
     res.sendFile(
-      path.resolve(__dirname, '../', 'dist', 'index.html')
-    )
-  );
+      path.resolve(__dirname, '../dist/index.html')
+    );
+  });
 } else {
   app.get('/', (req, res) => {
     res.send('API is running....');
