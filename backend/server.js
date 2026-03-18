@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const connectDB = require('./config/db');
 
 // Route imports
@@ -40,9 +41,12 @@ if (process.env.NODE_ENV === 'production') {
   // Use a wildcard middleware to serve index.html for any unhandled routes
   // This avoids Express 5 wildcard compilation errors
   app.use((req, res) => {
-    res.sendFile(
-      path.resolve(__dirname, '../dist/index.html')
-    );
+    const indexPath = path.resolve(__dirname, '../dist/index.html');
+    if (fs.existsSync(indexPath)) {
+      res.sendFile(indexPath);
+    } else {
+      res.status(503).send('<h2>CivicLens API is running!</h2><p>The React frontend has not been compiled yet on this server. Please ensure your deployment platform runs <code>npm run build</code> before starting the server.</p>');
+    }
   });
 } else {
   app.get('/', (req, res) => {
