@@ -323,5 +323,15 @@
 @media (max-width: 768px) {
   .issuesGrid { grid-template-columns: 1fr; }
   .sectionHeader h2 { font-size: 2.5rem; }
-  .filterPills { border-radius: 16px; flex-wrap: nowrap; overflow-x: auto; padding: 12px; }
+  .filterPills { 
+    border-radius: 16px; 
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    padding: 12px; 
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .filterPills::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -101,7 +101,7 @@
   z-index: 2;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .featuresGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;

@@ -107,6 +107,7 @@
 .gradientText {
   background: linear-gradient(to right, var(--primary), var(--secondary));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }
@@ -180,9 +181,16 @@
 }
 
 @media (max-width: 768px) {
-  .heroTitle { font-size: 3rem; }
-  .heroGlassContainer { padding: 3rem 2rem; border-radius: 20px; }
-  .heroButtons { flex-direction: column; width: 100%; }
-  .heroButtons button { width: 100%; }
-  .heroStats { flex-wrap: wrap; gap: 2rem; }
+  .heroSection { padding: 100px 5%; }
+  .heroTitle { font-size: 2.8rem; }
+  .heroSubtitle { font-size: 1.05rem; margin-bottom: 2rem; }
+  .heroGlassContainer { padding: 2.5rem 1.5rem; border-radius: 20px; }
+  .heroButtons { flex-direction: column; width: 100%; gap: 1rem; margin-bottom: 2.5rem; }
+  .btnPrimaryModern, .btnOutlineModern { width: 100%; display: flex; justify-content: center; }
+  .heroStats { flex-wrap: wrap; gap: 1.5rem; justify-content: space-around; }
+}
+
+@media (max-width: 480px) {
+  .heroTitle { font-size: 2.25rem; }
+  .statNumber { font-size: 1.5rem; }
 }

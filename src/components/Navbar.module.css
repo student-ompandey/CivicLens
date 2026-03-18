@@ -129,3 +129,20 @@
   color: var(--primary);
   padding-left: 24px;
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 1.2rem;
+    border-radius: 20px;
+  }
+  .navLinks {
+    display: none; /* Hide navlinks on ultra-small screens */
+  }
+  .accountBtn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  .logo {
+    font-size: 1.25rem;
+  }
+}

@@ -37,7 +37,12 @@ body {
   background-color: var(--bg-page);
   color: var(--text-main);
   overflow-x: hidden;
+  width: 100vw;
   -webkit-font-smoothing: antialiased;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 #particles-js {
@@ -99,6 +104,7 @@ body {
   font-size: 3rem;
   background: linear-gradient(135deg, #0f172a, #6366f1);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 1rem;
 }
