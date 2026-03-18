@@ -2,7 +2,9 @@ import axios from 'axios';
 
 // If deploying to Render with both front and back on the same server, use '/api'
 // Otherwise fallback to whatever the local ENV dictates.
-const BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:5000/api');
+// Fixed: Vercel hosts the Frontend natively, so we must explicitly ping the Render Backend URL 
+// in Production instead of using relative '/api' paths!
+const BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? 'https://civiclens-5.onrender.com/api' : 'http://localhost:5000/api');
 
 const api = axios.create({
   baseURL: BASE_URL,
